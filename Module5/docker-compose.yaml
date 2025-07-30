@@ -1,0 +1,40 @@
+version: '3.10.3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://course_role:mypassword@db:5432/myappdb
+    depends_on:
+      - db
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: myappdb
+      POSTGRES_USER: course_role
+      POSTGRES_PASSWORD: mypassword
+    ports:
+      - "5432:5432"
+
+
+      #docker-compose up --build -d   :creates a Docker image from your Dockerfile, build and start container
+      #docker-compose up -d: run containers in background
+      #Use your Dockerfile to build the image for the web service (your FastAPI app). Name the image automatically based on the folder name and service name (something like foldername_web), or you can specify an image name in your docker-compose.yml.
+      #Access database inside the container
+      #docker ps and check name of dataBase container
+      #docker exec -it module4-web1-1 bash 
+      #uvicorn main:app --host 0.0.0.0 --port 8000 --reload to run fastapi
+      #docker exec -it module4-db-1 bash     This is the Linux shell inside the container, like using a terminal in Ubuntu or Debian.You still need to start the PostgreSQL interactive terminal (psql).
+      #psql -U your_username -d your_database_name
+      #\dt        -- list tables
+      #\d items       -- describe 'items' table
+      #SELECT * FROM items;  -- see all rows
+
+#🟢 "Connect to the container named db on port 5432" And Docker knows how to find db, because it's defined in the same docker-compose.yml.
+#🔹 The FastAPI app (web) connects to the database container (db) 🔹 So it must use @db:5432, not @localhost
+#🧠 One-line summary: Inside Docker, containers talk to each other by their service names, not by localhost.
+#Your docker-compose.yml is building: A FastAPI app in one container, A PostgreSQL database in another.And it connects them automatically, no need for manual setup.
+
