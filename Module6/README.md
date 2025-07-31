@@ -32,6 +32,10 @@ git remote add origin ........
 git push -u origin main
 
 
+✅ Supabase is a cloud platform that provides a hosted PostgreSQL database along with many extra features.
+
+In other words, Supabase runs PostgreSQL for you in the cloud, so you don’t have to install or manage PostgreSQL yourself.
+
 ✅  If you deploy your app connected to Supabase’s managed database, then:
 
 You don’t need a local database named myappdb.
