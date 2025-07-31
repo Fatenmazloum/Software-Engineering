@@ -47,4 +47,6 @@ You don’t need the local password (mypassword) you used for your local setup.
 Because:
 Your app uses the Supabase database — which has its own database name (usually postgres), user (postgres), and password (the one you set when creating your Supabase project).
 
+Your app’s DATABASE_URL automatically switches to the new Supabase connection string when deployed — because you defined it in Render’s environment settings.
+
 Your connection string (DATABASE_URL) points directly to that remote Supabase database and credentials.
