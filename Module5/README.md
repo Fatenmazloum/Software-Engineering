@@ -1,3 +1,33 @@
+🟢 1. What happens without Docker?
+If you're not using Docker, your friend must:
+
+Install Python
+
+Install PostgreSQL (if you're using a database)
+
+Install all required libraries (usually via pip install -r requirements.txt)
+
+Make sure everything matches (versions, OS compatibility, etc.)
+
+Run your project manually (e.g., uvicorn main:app --reload)
+
+✅ This works, but it's fragile, hard to replicate, and depends on their environment.
+
+🐳 2. What happens with Docker?
+If you Dockerize your FastAPI project (and the database using docker-compose), then:
+
+You give your friend only:
+
+The project folder (with your FastAPI app, Dockerfile, docker-compose.yml, etc.)
+
+Instructions to:
+✅ Install Docker Desktop
+✅ Run: docker-compose up --build in the project folder
+
+🐳 2. What happens with Deploy?
+The process of putting your app on the internet
+
+
 🎉 Database Migration
 Definition: Moving or changing the structure of a database.
 
