@@ -50,3 +50,15 @@ Your app uses the Supabase database — which has its own database name (usually
 Your app’s DATABASE_URL automatically switches to the new Supabase connection string when deployed — because you defined it in Render’s environment settings.
 
 Your connection string (DATABASE_URL) points directly to that remote Supabase database and credentials.
+
+
+✅We deploy using Render and Supabase, where in Render we set an environment variable called DATABASE_URL(as you named it in .env), and its value is the connection string copied from Supabase, using the password you set when you created your Supabase project.
+
+
+
+
+
+
+
+
+
